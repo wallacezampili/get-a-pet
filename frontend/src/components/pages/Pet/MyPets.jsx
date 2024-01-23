@@ -53,7 +53,9 @@ function MyPets() {
   async function concludeAdoption(id) {
     let msgType = "success";
     const data = await api
-      .patch(`/pets/conclude/${id}`, { Authorization: `Bearer ${token}` })
+      .patch(`/pets/conclude/${id}`,{}, { headers: {
+        Authorization: `Bearer ${token}`
+      } })
       .then((response) => {
         return response.data;
       })
